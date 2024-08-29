@@ -28,16 +28,26 @@ async def generate_docs(files: list[UploadFile] = File(...)):
     combined_code = "\n".join(code_documents)
 
     # Create the prompt for Groq's LLaMA model
-    prompt = f"Please generate github documentation with details for the following code:\n\n{combined_code}\n\nDocumentation:"
+    prompt = (
+        f"The following code is provided:\n\n{combined_code}\n\n"
+        f"Please generate well-structured, clear, and detailed documentation in Markdown format. "
+        f"The documentation should include an overview, explanations of key components, "
+        f"usage examples, and any other relevant information that would help a general audience "
+        f"understand and use the code. Ensure the documentation is formatted for readability."
+    )
 
     # Call Groq's API to generate documentation
     try:
-        response = groq_client.completions.create(
-            model="llama-3.1-70b-versatile",
-            prompt=prompt,
-            max_tokens=2048
+        response = groq_client.chat.completions.create(
+            messages=[
+                {
+                    "role": "system",
+                    "content": prompt
+                }
+            ],
+            model="llama-3.1-70b-versatile",    
         )
-        documentation = response.choices[0].text.strip()
+        documentation = response.choices[0].message.content
     except Exception as e:
         documentation = f"Error: {str(e)}"
 
@@ -46,4 +56,3 @@ async def generate_docs(files: list[UploadFile] = File(...)):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)
-
