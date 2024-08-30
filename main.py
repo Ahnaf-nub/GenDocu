@@ -3,6 +3,11 @@ from fastapi.responses import JSONResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from groq import Groq
+from dotenv import load_dotenv
+import os
+
+# Load environment variables
+load_dotenv()
 
 # Initialize FastAPI and Groq client
 app = FastAPI()
@@ -11,7 +16,7 @@ templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Initialize the Groq client
-groq_client = Groq(api_key="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")  # Replace with your actual API key
+groq_client = Groq(api_key=os.getenv('API_KEY'))  # Replace with your actual API key
 
 @app.get("/", response_class=HTMLResponse)
 async def upload_page():
@@ -32,13 +37,13 @@ async def generate_docs(
 
     # Determine the style based on user selection
     if format == "github":
-        style = "GitHub README"
+        style = "GitHub README.md"
     else:
         style = "Normal Text"
     
     prompt = (
         f"The following code is provided:\n\n{combined_code}\n\n"
-        f"Please generate well-structured, clear, and detailed documentation in {style} format. "
+        f"Please generate well-structured, clear, and detailed documentation including setup instructions in {style} format. "
         f"The documentation should include an overview, explanations of key components, "
         f"usage examples, and any other relevant information that would help a general audience "
         f"understand and use the code. Ensure the documentation is formatted for readability."

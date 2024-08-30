@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation Generator</title>
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 
@@ -22,9 +26,10 @@
                     <option value="general">General</option>
                 </select>
             </div>
-            <button type="submit" class="submit-button">Generate Documentation</button>
+            <button type="submit" class="submit-button">Generate</button>
         </form>
         <div class="output" id="output"></div>
+        <button id="copy-button" class="copy-button">Copy to Clipboard</button>
     </div>
     <script src="/static/script.js"></script>
 </body>

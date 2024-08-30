@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    max-width: 500px;
+    max-width: 80%;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -47,20 +47,22 @@ h1 {
     /* Adjust width to account for padding */
 }
 
-.submit-button {
+.submit-button,
+.copy-button {
     display: block;
     margin: 20px auto;
-    width: 100%;
+    width: 50%;
     padding: 10px;
     background-color: #272b33;
     color: #fff;
     border: none;
-    border-radius: 20px;
+    border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.5s, transform 0.5s;
 }
 
-.submit-button:hover {
+.submit-button:hover,
+.copy-button:hover {
     background-color: #525964;
     transform: scale(1.05);
 }
@@ -71,4 +73,27 @@ h1 {
     background-color: #f9f9f9;
     border-radius: 4px;
     border: 1px solid #ddd;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .submit-button,
+    .copy-button {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        max-width: 95%;
+    }
+
+    .submit-button,
+    .copy-button {
+        width: 100%;
+    }
 }
