@@ -1,46 +1,59 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #0a0c10ea;
+    background-color: #193c47f3;
     margin: 0;
     padding: 10px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+body {
+    font-family: 'Roboto Mono', monospace;
+}
+
 .container {
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 20px;
-    box-shadow: 0 2px 5px rgb(71, 29, 29);
+    box-shadow: 0 2px 5px rgba(71, 29, 29, 0.2);
+}
+
+.documentation-format {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #ddd;
 }
 
 h1 {
     text-align: center;
-    color: #1d1717ec;
+    color: #193c47f3;
 }
 
 .file-input {
-    display: block;
     margin: 20px 0;
+    text-align: center;
 }
 
 .file-input input[type="file"] {
-    display: block;
-    margin: 0 auto;
-    width: 50% auto;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 10px;
     cursor: pointer;
+    width: calc(100% - 22px);
+    /* Adjust width to account for padding */
 }
 
 .submit-button {
     display: block;
     margin: 20px auto;
-    width: 40%;
+    width: 100%;
     padding: 10px;
     background-color: #272b33;
-    color: rgb(255, 255, 255);
+    color: #fff;
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -49,7 +62,7 @@ h1 {
 
 .submit-button:hover {
     background-color: #525964;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .output {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Code Files</title>
+    <title>Documentation Generator</title>
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 
@@ -14,6 +14,13 @@
         <form id="upload-form" enctype="multipart/form-data">
             <div class="file-input">
                 <input type="file" id="code-files" name="files" multiple>
+            </div>
+            <div class="documentation-format">
+                <label for="format">Documentation Format:</label>
+                <select name="format" id="format">
+                    <option value="github">GitHub</option>
+                    <option value="general">General</option>
+                </select>
             </div>
             <button type="submit" class="submit-button">Generate Documentation</button>
         </form>
