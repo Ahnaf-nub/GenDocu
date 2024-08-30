@@ -3,3 +3,4 @@ uvicorn
 groq
 jinja2
 python-multipart
+python-dotenv
