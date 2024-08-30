@@ -23,7 +23,7 @@ If you are lazy like me in terms of generating documentation then this tool is f
     1. Navigate to the application's homepage: `http://127.0.0.1:8000/`
     2. Click the "Choose Files" button to select one or more code files to upload.
     3. Select the desired documentation format: GitHub README.md or Normal Text.
-    4. Click the "Generate Documentation" button.
+    4. Click the "Generate" button.
     ### Viewing Documentation 
     1. The generated documentation will be displayed ine the box.
     2. The documentation includes an overview, explanations of key components, usage examples, and other relevant information.
