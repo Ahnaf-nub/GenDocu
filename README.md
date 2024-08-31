@@ -3,6 +3,7 @@
 If you are lazy like me in terms of generating documentation then this tool is for you! This project is a web-based application that generates detailed documentation from uploaded code files. The application is built using FastAPI for the backend, Meta's LLaMA 3.1 model using groq for generating the documentation, and a simple frontend with HTML, CSS, and JavaScript. 
 *(This documentation is also written using this tool!!!)*
 **Try it out at https://gendocu.vercel.app**
+![image](https://github.com/user-attachments/assets/ea483120-3f21-4c36-a69c-839fb9730525)
 ## Features
 
 - **Upload Multiple Files**: Users can upload multiple code files simultaneously to generate comprehensive documentation.
@@ -10,16 +11,17 @@ If you are lazy like me in terms of generating documentation then this tool is f
 - **Copy to Clipboard**: Users can easily copy the generated documentation to their clipboard with a single click.
 
   **Setup Instructions**
-   ----------------------### Prerequisites
+   ### Prerequisites
     * Python 3.8+ * FastAPI * Groq API key
      ### Installation 
      1. Clone the repository: `git clone https://github.com/Ahnaf-nub/Code-Documentation-Generator.git`
-     2. Install the required dependencies: `pip install fastapi groq` 
-     3. Replace the `api_key` variable in the `groq_client` initialization with your actual Groq API key. 
+     2. Go to the directory folder with `cd Code-Documentation-Generator`
+     3. Install the required dependencies: `pip install -r requirements.txt` 
+     4. Replace the `api_key` variable in the `groq_client` initialization with your actual Groq API key. 
      ### Running the Application 
      1. Run the application: `uvicorn main:app --host 127.0.0.1 --port 8000`
      2. Open a web browser and navigate to `http://127.0.0.1:8000/`
-    **Usage** --------- 
+    **Usage**
     ### Uploading Code
     1. Navigate to the application's homepage: `http://127.0.0.1:8000/`
     2. Click the "Choose Files" button to select one or more code files to upload.
@@ -29,9 +31,9 @@ If you are lazy like me in terms of generating documentation then this tool is f
     1. The generated documentation will be displayed ine the box.
     2. The documentation includes an overview, explanations of key components, usage examples, and other relevant information.
     **Key Components**
-     ------------------ * `main.py`: The main application file that defines the FastAPI routes and handles user input. *
+       * `main.py`: The main application file that defines the FastAPI routes and handles user input. *
       `groq_client`: The Groq API client that generates the documentation.
        * `templates/index.html`: The HTML template for the application's homepage.
-       *  **Troubleshooting** ------------------ * 
+       *  **Troubleshooting** * 
        Ensure that the Groq API key is valid and properly configured.
        * Check the application logs for any error messages. * Verify that the code files are uploaded correctly and in the correct format.
