@@ -19,7 +19,7 @@ If you are lazy like me in terms of generating documentation then this tool is f
      3. Install the required dependencies: `pip install -r requirements.txt` 
      4. Replace the `api_key` variable in the `groq_client` initialization with your actual Groq API key. 
      ### Running the Application 
-     1. Run the application: `uvicorn main:app --host 127.0.0.1 --port 8000`
+     1. Run the application: `python main.py`
      2. Open a web browser and navigate to `http://127.0.0.1:8000/`
     **Usage**
     ### Uploading Code
