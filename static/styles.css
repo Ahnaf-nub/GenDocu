@@ -1,99 +1,172 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #193c47f3;
+/* Import Pixelated Font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    padding: 10px;
+    padding: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
-
 body {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: url('/static/gendocu.gif');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    text-align: center;
+    overflow: auto;
 }
 
 .container {
-    max-width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
+    background-color: rgba(20, 20, 20, 0.95);
+    padding: 2rem;
     border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(71, 29, 29, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    max-width: 600px;
+    width: 100%;
+    margin: 20px;
 }
 
-.documentation-format {
-    margin: 20px 0;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    border: 1px solid #ddd;
+.header {
+    margin-bottom: 1.5rem;
 }
 
 h1 {
-    text-align: center;
-    color: #193c47f3;
+    font-size: 1.8rem;
+    color: #61dafb;
+    margin-bottom: 1rem;
 }
 
-.file-input {
-    margin: 20px 0;
-    text-align: center;
+.file-input,
+.documentation-format {
+    margin-bottom: 1.5rem;
+    text-align: left;
 }
 
-.file-input input[type="file"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    cursor: pointer;
-    width: calc(100% - 22px);
-    /* Adjust width to account for padding */
-}
-
-.submit-button,
-.copy-button {
+.file-input label,
+.documentation-format label {
     display: block;
-    margin: 20px auto;
-    width: 50%;
-    padding: 10px;
-    background-color: #272b33;
-    color: #fff;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: background-color 0.5s, transform 0.5s;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
-.submit-button:hover,
-.copy-button:hover {
-    background-color: #525964;
-    transform: scale(1.05);
+.file-input input[type="file"],
+.documentation-format select {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: #f5f5f5;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.file-input input[type="file"]::file-selector-button {
+    background-color: #61dafb;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: #1a1a1a;
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.file-input input[type="file"]::file-selector-button:hover {
+    background-color: #21a1f1;
+}
+
+.documentation-format select:hover {
+    border-color: #61dafb;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #61dafb;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-bottom: 1.5rem;
+}
+
+.submit-button:hover {
+    background-color: #21a1f1;
+    transform: scale(1.02);
 }
 
 .output {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 4px;
-    border: 1px solid #ddd;
+    background-color: #2a2a2a;
+    padding: 1.5rem;
+    border-radius: 5px;
+    border: 1px solid #444;
+    color: #f5f5f5;
+    text-align: left;
+    overflow-x: auto;
+    max-height: 60vh;
+    overflow-y: auto;
 }
 
-/* Media Queries */
-@media screen and (max-width: 768px) {
-    .container {
-        max-width: 90%;
-    }
-
-    .submit-button,
-    .copy-button {
-        width: 80%;
-    }
+.output pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
-@media screen and (max-width: 480px) {
-    .container {
-        max-width: 95%;
-    }
+.copy-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #61dafb;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
 
+.copy-button:hover {
+    background-color: #21a1f1;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .file-input input[type="file"],
+    .documentation-format select,
     .submit-button,
     .copy-button {
-        width: 100%;
+        font-size: 0.8rem;
+        padding: 0.6rem;
+    }
+    
+    .output pre {
+        font-size: 0.8rem;
     }
 }

@@ -38,16 +38,26 @@ async def generate_docs(
     # Determine the style based on user selection
     if format == "github":
         style = "GitHub README.md"
+        prompt = (
+        f"The following code is provided:\n\n{combined_code}\n\n"
+        f"Please generate well-structured, clear, and detailed documentation in {style} format. "
+        f"Structure the documentation with the following sections: "
+        f"1. **Overview** - Brief introduction and purpose of the code. "
+        f"2. **Installation** - Steps to install any dependencies or set up the environment. "
+        f"3. **Usage** - Instructions and examples on how to use the code. "
+        f"4. **Code Explanation** - Detailed explanation of key functions, classes, and logic in the code. "
+        f"5. **Conclusion** - Any additional notes or considerations. "
+        f"Ensure that the documentation is formatted for readability with appropriate headings and code blocks where necessary."
+    )
     else:
         style = "Normal Text"
-    
-    prompt = (
-        f"The following code is provided:\n\n{combined_code}\n\n"
-        f"Please generate well-structured, clear, and detailed documentation including setup instructions in {style} format. "
-        f"The documentation should include an overview, explanations of key components, "
-        f"usage examples, and any other relevant information that would help a general audience "
-        f"understand and use the code. Ensure the documentation is formatted for readability."
-    )
+        prompt = (
+            f"The following code is provided:\n\n{combined_code}\n\n"
+            f"Please generate well-structured, clear, and detailed documentation including setup instructions in {style} format. "
+            f"The documentation should include an overview, explanations of key components, "
+            f"usage examples, and any other relevant information that would help a general audience "
+            f"understand and use the code. Ensure the documentation is formatted for readability."
+        )
 
     # Call Groq's API to generate documentation
     try:
