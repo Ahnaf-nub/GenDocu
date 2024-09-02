@@ -3,7 +3,7 @@
 If you are lazy like me in terms of generating documentation then this tool is for you! This project is a web-based application that generates detailed documentation from uploaded code files. The application is built using FastAPI for the backend, Meta's LLaMA 3.1 model using groq for generating the documentation, and a simple frontend with HTML, CSS, and JavaScript. 
 *(This documentation is also written using this tool!!!)*
 **Try it out at https://gendocu.vercel.app**
-![image](https://github.com/user-attachments/assets/ea483120-3f21-4c36-a69c-839fb9730525)
+![Screenshot 2024-09-02 100512](https://github.com/user-attachments/assets/e5bb6265-f0bc-4274-b43e-c8ec3dd34772)
 ## Features
 
 - **Upload Multiple Files**: Users can upload multiple code files simultaneously to generate comprehensive documentation.
