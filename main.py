@@ -40,7 +40,7 @@ async def generate_docs(
     if context:
         prompt = (
             f"The following code is provided:\n\n{combined_code}\n\n"
-            f"Context: {context}\n\n"
+            f"Context provided by user: {context}\n\n"
         )
     else:
         prompt = (
@@ -77,7 +77,7 @@ async def generate_docs(
                     "content": prompt
                 }
             ],
-            model="llama-3.1-70b-versatile",
+            model = "llama-3.1-70b-versatile",
         )
         documentation = response.choices[0].message.content
         
