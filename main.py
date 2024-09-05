@@ -5,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 from groq import Groq
 from dotenv import load_dotenv
 import os
+import textwrap  # Import textwrap for wrapping long lines
 
 # Load environment variables
 load_dotenv()
@@ -40,7 +41,7 @@ async def generate_docs(
     if context:
         prompt = (
             f"The following code is provided:\n\n{combined_code}\n\n"
-            f"Context provided by user: {context}\n\n"
+            f"Context provided: {context}\n\n"
         )
     else:
         prompt = (
@@ -50,14 +51,14 @@ async def generate_docs(
     if format == "github":
         style = "GitHub README.md"
         prompt += (
-            f"Please generate well-structured, clear, and detailed documentation in {style} format. "
+            f"Please generate well-structured, clear, and detailed documentation in {style} format."
             f"Structure the documentation with the following sections: "
-            f"1. **Overview** - Brief introduction and purpose of the code. "
-            f"2. **Installation** - Steps to install any dependencies or set up the environment. "
-            f"3. **Usage** - Instructions and examples on how to use the code. "
-            f"4. **Code Explanation** - Detailed explanation of key functions, classes, and logic in the code. "
-            f"5. **Conclusion** - Any additional notes or considerations. "
-            f"Ensure that the documentation is formatted for readability with appropriate headings and code blocks where necessary."
+            f"1.# Overview - Brief introduction and purpose of the code. "
+            f"2.# Installation - Steps to install any dependencies or set up the environment. "
+            f"3.# Usage - Instructions and examples on how to use the code. "
+            f"4.# Code Explanation - Detailed explanation of key functions, classes, and logic in the code. "
+            f"5.# Conclusion - Any additional notes or considerations. "
+            f"Ensure that the documentation is formatted for readability for GitHub README.md with appropriate headings and code blocks where necessary."
         )
     else:
         style = "Normal Text"
@@ -83,11 +84,14 @@ async def generate_docs(
         
         if format == "general":
             documentation = documentation.replace("**", "").replace("##", "").replace("###", "").replace("***", "")
-            
+        
+        # Wrap long lines to prevent awkward line breaks
+        wrapped_documentation = textwrap.fill(documentation, width=80)
+        
     except Exception as e:
-        documentation = f"Error: {str(e)}"
+        wrapped_documentation = f"Error: {str(e)}"
 
-    return JSONResponse(content={"documentation": documentation})
+    return JSONResponse(content={"documentation": wrapped_documentation})
 
 if __name__ == "__main__":
     import uvicorn

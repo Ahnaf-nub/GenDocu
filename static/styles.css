@@ -118,6 +118,7 @@ input[type="text"]:hover {
     overflow-x: auto;
     max-height: 60vh;
     overflow-y: auto;
+    font-family: 'Roboto', sans-serif;
 }
 
 .output pre {
@@ -134,14 +135,29 @@ input[type="text"]:hover {
     background-color: #61dafb;
     color: #1a1a1a;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.5s;
     font-weight: bold;
 }
 
-.copy-button:hover {
+.view-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #61dafb;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    font-weight: bold;
+}
+
+.copy-button:hover,
+.view-button:hover {
     background-color: #21a1f1;
 }
 
