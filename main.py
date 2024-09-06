@@ -78,7 +78,7 @@ async def generate_docs(
                     "content": prompt
                 }
             ],
-            model = "llama-3.1-70b-versatile",
+            model = "gemma2-9b-it",
         )
         documentation = response.choices[0].message.content
         
